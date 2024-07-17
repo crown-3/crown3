@@ -14,6 +14,33 @@ const colors = {
     yellow: "#ffe42c",
     green: "#5ebc1e",
   },
+
+  tags: {
+    red: {
+      fill: "#E13637",
+      stroke: "#BE2425",
+    },
+    orange: {
+      fill: "#DD6C03",
+      stroke: "#AA5200",
+    },
+    bronze: {
+      fill: "#E38A4F",
+      stroke: "#AF6230",
+    },
+    gold: {
+      fill: "#FFE500",
+      stroke: "#B3A73D",
+    },
+    green: {
+      fill: "#4EA712",
+      stroke: "#488320",
+    },
+    blue: {
+      fill: "#3E73D1",
+      stroke: "#2B5BB0",
+    },
+  },
 };
 
 export default colors;

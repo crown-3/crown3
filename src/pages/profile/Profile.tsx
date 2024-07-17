@@ -48,7 +48,7 @@ const Profile = () => {
           gap: "20px",
         }}
       >
-        <h3>이정우</h3>
+        <h4>이정우</h4>
 
         <div
           style={{
@@ -58,7 +58,7 @@ const Profile = () => {
           }}
         />
 
-        <h3>Lee Jeongwoo</h3>
+        <h4>Lee Jeongwoo</h4>
       </div>
 
       <Spacer height="40px" />
@@ -94,6 +94,7 @@ const ProfileInfoWrapper = styled.div`
   display: flex;
   gap: 16px;
   align-items: center;
+  color: ${colors.dark};
 
   &:hover {
     span {

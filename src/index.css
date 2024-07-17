@@ -5,7 +5,7 @@
   font-family: "Galmuri7", sans-serif;
   font-size: 16px;
 
-  color: #252525;
+  color: inherit;
 }
 
 :root {
@@ -14,6 +14,7 @@
 
 body {
   background-color: #f5f4f0;
+  color: #252525;
 }
 
 a {
@@ -42,13 +43,39 @@ h2 {
 h3 {
   margin: 0;
 
+  font-family: "Galmuri11", sans-serif;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+h4 {
+  margin: 0;
+
   font-family: "Galmuri9", sans-serif;
   font-size: 24px;
 }
 
-p {
+h6 {
   margin: 0;
+
+  font-family: "Galmuri7", sans-serif;
+  font-size: 16px;
+}
+
+p {
+  margin-top: 7px;
 
   font-family: "Galmuri9", sans-serif;
   font-size: 18px;
+
+  a {
+    color: #818181;
+    text-decoration: underline;
+    font-size: inherit;
+    font-family: inherit;
+  }
+}
+
+p:nth-child(-n + 1) {
+  margin: 0;
 }
