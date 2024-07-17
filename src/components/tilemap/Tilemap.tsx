@@ -2,7 +2,7 @@ import { CSSProperties, Dispatch, SetStateAction } from "react";
 import assets from "src/constants/assets";
 import { DISABLE_USER_SELECT } from "src/constants/defaults";
 import { SelectedTileRecord } from "src/types/tile";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 import Tile from "./Tile";
 
@@ -19,6 +19,7 @@ interface TilemapProps {
   rows: number;
   columns: number;
   tileInfos: TileInfo[];
+  onTileClick?: () => void;
 
   selectedTileState: [
     SelectedTileRecord,
@@ -26,19 +27,40 @@ interface TilemapProps {
   ];
 }
 
+const SizeUpAnimation = keyframes`
+0% {
+  transform: scale(0);
+}
+
+100% {
+  transform: scale(1);
+}
+`;
+
 const TileWrapper = styled.div<{
   $row: number;
   $column: number;
+  $animationDelay: number;
   $tileSize: CSSProperties["width"];
 }>`
   position: absolute;
   cursor: pointer;
 
-  ${({ $tileSize, $row, $column }) => css`
+  transform: scale(0);
+
+  ::after {
+    transform: scale(1);
+  }
+
+  animation: ${SizeUpAnimation} 0.3s forwards
+    cubic-bezier(0.15, 0.65, 0.23, 0.93);
+
+  ${({ $tileSize, $row, $column, $animationDelay }) => css`
     width: ${$tileSize};
     height: ${$tileSize};
     top: calc(${$tileSize} * ${$row});
     left: calc(${$tileSize} * ${$column});
+    animation-delay: ${$animationDelay}s;
   `}
 `;
 
@@ -47,10 +69,12 @@ const Tilemap = ({
   rows,
   columns,
   tileInfos,
+  onTileClick: onTileClickProp,
   selectedTileState: [selectedTile, setSelectedTile],
 }: TilemapProps) => {
   const onTileClick = (tileInfo: TileInfo) => {
     setSelectedTile(tileInfo);
+    onTileClickProp?.();
   };
 
   const onTileDismiss = () => {
@@ -77,7 +101,9 @@ const Tilemap = ({
             $row={tileInfo.row}
             $column={tileInfo.column}
             $tileSize={tileSize}
+            $animationDelay={tileInfo.row * 0.1}
             onClick={() => {
+              if (!tileInfo.icon) return;
               onTileClick(tileInfo);
             }}
           >

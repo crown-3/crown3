@@ -17,11 +17,6 @@ const Container = styled.div<{ $style?: CSSProp }>`
   ${({ $style }) => $style};
 `;
 
-const Content = styled.div`
-  width: 1000px; // 컨텐츠의 너비, 컨테이너보다 넓게 설정
-  height: 1000px; // 컨텐츠의 높이, 컨테이너보다 높게 설정
-`;
-
 interface Position {
   x: number;
   y: number;

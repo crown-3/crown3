@@ -10,6 +10,7 @@ import {
 import Paths from "./constants/paths";
 import Layout from "./layout/Layout";
 import ProfilePage from "./pages/profile/page";
+import MobileSkills from "./pages/skills/page";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => {
         <Route element={<Layout />}>
           <Route path={Paths.PROFILE} element={<ProfilePage />} />
         </Route>
+        <Route path={Paths.SKILLS} element={<MobileSkills />} />
         <Route path="*" element={<Navigate to={Paths.PROFILE} replace />} />
       </>,
     ),

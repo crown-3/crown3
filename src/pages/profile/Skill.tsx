@@ -1,9 +1,16 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Box from "src/components/common/Box";
+import PixelButton from "src/components/common/PixelButton";
 import DragToScrollContainer from "src/components/containers/DragToScrollContainer";
 import Spacer from "src/components/containers/Spacer";
 import Tilemap from "src/components/tilemap/Tilemap";
 import colors from "src/constants/colors";
+import {
+  MOBILE_BREAKPOINT,
+  MOBILE_BREAKPOINT_PX,
+} from "src/constants/defaults";
+import Paths from "src/constants/paths";
 import { Tree, TREES } from "src/constants/skilltrees";
 import { SelectedTileRecord } from "src/types/tile";
 import styled, { css } from "styled-components";
@@ -15,46 +22,72 @@ const Skill = () => {
 
   const [selectedTile, setSelectedTile] = useState<SelectedTileRecord>(null);
 
+  const navigator = useNavigate();
+
   return (
     <>
       <h2>⚔️ skills</h2>
 
-      <Spacer height="50px" />
+      <SkillViewerWrapper>
+        <Spacer height="50px" />
 
-      <SelectorWrapper>
-        {TREES.map((tree) => (
-          <SelectorBox key={tree.type} $isSelected={tree === selectedTree}>
-            <SelectorButton
-              onClick={() => {
-                setSelectedTree(tree);
-              }}
-            >
-              {tree.type}
-            </SelectorButton>
-          </SelectorBox>
-        ))}
-      </SelectorWrapper>
+        <SelectorWrapper>
+          {TREES.map((tree) => (
+            <SelectorBox key={tree.type} $isSelected={tree === selectedTree}>
+              <SelectorButton
+                onClick={() => {
+                  setSelectedTree(tree);
+                }}
+              >
+                {tree.type}
+              </SelectorButton>
+            </SelectorBox>
+          ))}
+        </SelectorWrapper>
 
-      <SkillViewer>
-        <DragToScrollContainer>
-          <Tilemap
-            tileSize="100px"
-            rows={9}
-            columns={12}
-            tileInfos={selectedTree.tileInfos}
-            selectedTileState={[selectedTile, setSelectedTile]}
-          />
-        </DragToScrollContainer>
+        <SkillViewer>
+          <DragToScrollContainer>
+            <Tilemap
+              tileSize="100px"
+              rows={9}
+              columns={12}
+              tileInfos={selectedTree.tileInfos}
+              selectedTileState={[selectedTile, setSelectedTile]}
+            />
+          </DragToScrollContainer>
 
-        {selectedTile?.icon && (
-          <SkillDescriptionWrapper>
-            <SkillDescription tileInfo={selectedTile} />
-          </SkillDescriptionWrapper>
-        )}
-      </SkillViewer>
+          {selectedTile?.icon && (
+            <SkillDescriptionWrapper>
+              <SkillDescription tileInfo={selectedTile} />
+            </SkillDescriptionWrapper>
+          )}
+        </SkillViewer>
+      </SkillViewerWrapper>
+
+      <MobileDirectionWrapper>
+        <Spacer height="20px" />
+        <PixelButton
+          onClick={() => {
+            navigator(Paths.SKILLS);
+          }}
+        >
+          스킬 확인하기
+        </PixelButton>
+      </MobileDirectionWrapper>
     </>
   );
 };
+
+const SkillViewerWrapper = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    display: none;
+  }
+`;
 
 const SelectorWrapper = styled.div`
   display: flex;
@@ -107,6 +140,17 @@ const SkillDescriptionWrapper = styled(Box)`
 
   padding: 10px;
   box-sizing: border-box;
+`;
+
+const MobileDirectionWrapper = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: ${MOBILE_BREAKPOINT_PX + 1}px) {
+    display: none;
+  }
 `;
 
 export default Skill;

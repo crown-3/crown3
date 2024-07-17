@@ -8,6 +8,10 @@
   color: #252525;
 }
 
+:root {
+  --rsbs-bg: #252525;
+}
+
 body {
   background-color: #f5f4f0;
 }
