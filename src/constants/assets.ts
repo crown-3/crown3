@@ -25,6 +25,12 @@ const assets = {
     svelte: createIconPath("Svelte.png"),
     tailwind: createIconPath("Tailwind.png"),
     typescript: createIconPath("Typescript.png"),
+
+    aseprite: createIconPath("Aseprite.png"),
+    figma: createIconPath("Figma.png"),
+    lottie: createIconPath("Lottie.png"),
+    phase: createIconPath("Phase.png"),
+    powerpoint: createIconPath("Powerpoint.png"),
   },
 
   frames: {
@@ -59,6 +65,8 @@ const assets = {
     language: createPropertyIconPath("language.png"),
     state: createPropertyIconPath("state.png"),
     styling: createPropertyIconPath("styling.png"),
+    animation: createPropertyIconPath("animation.png"),
+    tool: createPropertyIconPath("program.png"),
   },
 };
 

@@ -17,8 +17,8 @@ export const TREES: Tree[] = [
     type: TreeVariants.DEVELOPMENT,
     tileInfos: TILEINFOS_DEVELOPMENT,
   },
-  // {
-  //   type: TreeVariants.DESIGN,
-  //   tileInfos: TILEINFOS_DESIGN,
-  // },
+  {
+    type: TreeVariants.DESIGN,
+    tileInfos: TILEINFOS_DESIGN,
+  },
 ];
