@@ -4,7 +4,7 @@ import Spacer from "src/components/containers/Spacer";
 import { ACTIVITIES, CONTESTS } from "src/constants/experiences.tsx";
 
 import Experiences from "./Experiences";
-import Profile from "./Profile";
+import Profile from "./profileSection/Profile";
 import Skill from "./Skill";
 
 const ProfilePage = () => {

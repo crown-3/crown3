@@ -4,6 +4,8 @@ import Spacer from "src/components/containers/Spacer";
 import colors from "src/constants/colors";
 import styled from "styled-components";
 
+import Crown3 from "./Crown3";
+
 interface ProfileInfo {
   key: string;
   icon: React.ReactNode;
@@ -37,7 +39,7 @@ const Profile = () => {
     <>
       <Spacer height="120px" />
 
-      <h1>crown3</h1>
+      <Crown3 />
 
       <Spacer height="20px" />
 
