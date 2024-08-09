@@ -58,7 +58,12 @@ const Skill = () => {
 
           {selectedTile?.icon && (
             <SkillDescriptionWrapper>
-              <SkillDescription tileInfo={selectedTile} />
+              <SkillDescription
+                tileInfo={selectedTile}
+                onDismiss={() => {
+                  setSelectedTile(null);
+                }}
+              />
             </SkillDescriptionWrapper>
           )}
         </SkillViewer>

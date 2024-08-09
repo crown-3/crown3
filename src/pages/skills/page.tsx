@@ -17,6 +17,9 @@ const MobileSkills = () => {
   const [selectedTree, setSelectedTree] = useState<Tree>(TREES[0]);
 
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+  const onDismiss = () => {
+    setIsBottomSheetOpen(false);
+  };
 
   const [selectedTile, setSelectedTile] = useState<SelectedTileRecord>(null);
 
@@ -51,16 +54,13 @@ const MobileSkills = () => {
         </main>
       </ViewWrapper>
 
-      <BottomSheet
-        open={isBottomSheetOpen}
-        onDismiss={() => {
-          setIsBottomSheetOpen(false);
-        }}
-      >
+      <BottomSheet open={isBottomSheetOpen} onDismiss={onDismiss}>
         <div
           style={{ width: "100%", padding: "16px", boxSizing: "border-box" }}
         >
-          {selectedTile && <SkillDescription tileInfo={selectedTile} />}
+          {selectedTile && (
+            <SkillDescription tileInfo={selectedTile} onDismiss={onDismiss} />
+          )}
         </div>
       </BottomSheet>
     </>

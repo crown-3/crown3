@@ -29,7 +29,7 @@ const Crown3 = () => {
   return (
     <div style={{ position: "relative" }}>
       <h1>crown3</h1>
-      <h1
+      <span
         style={{
           position: "absolute",
           top: "0px",
@@ -42,7 +42,7 @@ const Crown3 = () => {
             {char}
           </AnimatedChar>
         ))}
-      </h1>
+      </span>
     </div>
   );
 };

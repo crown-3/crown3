@@ -77,10 +77,6 @@ const Tilemap = ({
     onTileClickProp?.();
   };
 
-  const onTileDismiss = () => {
-    setSelectedTile(null);
-  };
-
   return (
     <div
       style={{
@@ -106,6 +102,7 @@ const Tilemap = ({
               if (!tileInfo.icon) return;
               onTileClick(tileInfo);
             }}
+            id={`row:${tileInfo.row}, column:${tileInfo.column}`}
           >
             <Tile
               tileSize={tileSize}

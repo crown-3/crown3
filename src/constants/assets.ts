@@ -1,73 +1,86 @@
-const SKILLTREE_DEFAULT_PATH = "/assets/skilltree";
+interface Assets {
+  [key: string]: string | Assets;
+}
 
-const createIconPath = (fileName: string) =>
-  `${SKILLTREE_DEFAULT_PATH}/icons/${fileName}`;
-
-const createFramePath = (fileName: string) =>
-  `${SKILLTREE_DEFAULT_PATH}/frames/${fileName}`;
-
-const createLinePath = (fileName: string) =>
-  `${SKILLTREE_DEFAULT_PATH}/lines/${fileName}`;
-
-const createPropertyIconPath = (fileName: string) =>
-  `${SKILLTREE_DEFAULT_PATH}/propertyIcons/${fileName}`;
-
-const assets = {
+const assetsPaths = {
   icons: {
-    cPlusPlus: createIconPath("C++.png"),
-    emotion: createIconPath("Emotion.png"),
-    jotai: createIconPath("Jotai.png"),
-    nextjs: createIconPath("NextJs.png"),
-    python: createIconPath("Python.png"),
-    react: createIconPath("React.png"),
-    reactQuery: createIconPath("ReactQuery.png"),
-    styledComponents: createIconPath("StyledComponents.png"),
-    svelte: createIconPath("Svelte.png"),
-    tailwind: createIconPath("Tailwind.png"),
-    typescript: createIconPath("Typescript.png"),
+    cPlusPlus: "C++.png",
+    emotion: "Emotion.png",
+    jotai: "Jotai.png",
+    nextjs: "NextJs.png",
+    python: "Python.png",
+    react: "React.png",
+    reactQuery: "ReactQuery.png",
+    styledComponents: "StyledComponents.png",
+    svelte: "Svelte.png",
+    tailwind: "Tailwind.png",
+    typescript: "Typescript.png",
 
-    aseprite: createIconPath("Aseprite.png"),
-    figma: createIconPath("Figma.png"),
-    lottie: createIconPath("Lottie.png"),
-    phase: createIconPath("Phase.png"),
-    powerpoint: createIconPath("Powerpoint.png"),
+    aseprite: "Aseprite.png",
+    figma: "Figma.png",
+    lottie: "Lottie.png",
+    phase: "Phase.png",
+    powerpoint: "Powerpoint.png",
   },
 
   frames: {
     circle: {
-      default: createFramePath("circle.png"),
-      selected: createFramePath("circle_selected.png"),
+      default: "circle.png",
+      selected: "circle_selected.png",
     },
     hexagon: {
-      default: createFramePath("hexagon.png"),
-      selected: createFramePath("hexagon_selected.png"),
+      default: "hexagon.png",
+      selected: "hexagon_selected.png",
     },
     square: {
-      default: createFramePath("square.png"),
-      selected: createFramePath("square_selected.png"),
+      default: "square.png",
+      selected: "square_selected.png",
     },
   },
 
   lines: {
-    down: createLinePath("_down.png"),
-    leftDown: createLinePath("_left_down.png"),
-    leftRight: createLinePath("_left_right.png"),
-    leftDownRight: createLinePath("_left_down_right.png"),
-    upDown: createLinePath("_up_down.png"),
-    upDownRight: createLinePath("_up_down_right.png"),
-    up: createLinePath("_up.png"),
+    down: "_down.png",
+    leftDown: "_left_down.png",
+    leftRight: "_left_right.png",
+    leftDownRight: "_left_down_right.png",
+    upDown: "_up_down.png",
+    upDownRight: "_up_down_right.png",
+    up: "_up.png",
   },
 
   propertyIcons: {
-    api: createPropertyIconPath("api.png"),
-    framework: createPropertyIconPath("framework.png"),
-    heart: createPropertyIconPath("heart.png"),
-    language: createPropertyIconPath("language.png"),
-    state: createPropertyIconPath("state.png"),
-    styling: createPropertyIconPath("styling.png"),
-    animation: createPropertyIconPath("animation.png"),
-    tool: createPropertyIconPath("program.png"),
+    api: "api.png",
+    framework: "framework.png",
+    heart: "heart.png",
+    language: "language.png",
+    state: "state.png",
+    styling: "styling.png",
+    animation: "animation.png",
+    tool: "program.png",
+  },
+
+  ui: {
+    close: "close.png",
   },
 };
+
+const generatePaths = (basePath: string, obj: Assets): Assets => {
+  const result: Assets = {};
+
+  for (const key in obj) {
+    if (typeof obj[key] === "object") {
+      result[key] = generatePaths(`${basePath}/${key}`, obj[key] as Assets);
+    } else {
+      result[key] = `${basePath}/${obj[key] as string}`;
+    }
+  }
+
+  return result;
+};
+
+const baseAssetsPath = "/assets/skilltree";
+
+// @ts-ignore
+const assets: typeof assetsPaths = generatePaths(baseAssetsPath, assetsPaths);
 
 export default assets;

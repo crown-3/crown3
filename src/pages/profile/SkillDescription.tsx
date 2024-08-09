@@ -1,5 +1,6 @@
 import Layer from "src/components/common/Layer";
 import Pixel from "src/components/common/Pixel";
+import PureButton from "src/components/common/PureButton";
 import Spacer from "src/components/containers/Spacer";
 import assets from "src/constants/assets";
 import colors from "src/constants/colors";
@@ -9,33 +10,48 @@ import styled from "styled-components";
 
 interface SkillDescriptionProps {
   tileInfo: TileInfo;
+  onDismiss: () => void;
 }
 
-const SkillDescription = ({ tileInfo }: SkillDescriptionProps) => {
+const SkillDescription = ({ tileInfo, onDismiss }: SkillDescriptionProps) => {
   if (!tileInfo.frame || !tileInfo.icon) return;
 
   const skill = skills(tileInfo.icon);
 
   return (
     <Wrapper>
-      <Layer
-        width="150px"
-        height="150px"
-        layers={[
-          <Pixel
-            width="150px"
-            height="150px"
-            key="frame"
-            src={assets.frames[tileInfo.frame].default}
-          />,
-          <Pixel
-            width="75px"
-            height="75px"
-            key="icon"
-            src={assets.icons[tileInfo.icon]}
-          />,
-        ]}
-      />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <Layer
+          width="150px"
+          height="150px"
+          layers={[
+            <Pixel
+              width="150px"
+              height="150px"
+              key="frame"
+              src={assets.frames[tileInfo.frame].default}
+            />,
+            <Pixel
+              width="75px"
+              height="75px"
+              key="icon"
+              src={assets.icons[tileInfo.icon]}
+            />,
+          ]}
+        />
+
+        <PureButton
+          onClick={onDismiss}
+          style={{ height: "fit-content", padding: "5px" }}
+        >
+          <Pixel width="20px" height="20px" src={assets.ui.close} />
+        </PureButton>
+      </div>
 
       <SkillProfileWrapper>
         <Title>{skill.name}</Title>
