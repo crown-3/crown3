@@ -27,7 +27,15 @@ const ProfilePage = () => {
 
         <Spacer height="150px" />
 
-        <Experiences title="💎 Activities" experiences={ACTIVITIES} />
+        <Experiences
+          title="💎 Activities"
+          experiences={ACTIVITIES}
+          frame="activities"
+          wrapperStyle={{
+            padding: "70px 0",
+            gap: "150px",
+          }}
+        />
       </Content>
     </Area>
   );

@@ -1,12 +1,12 @@
 import assets from "src/constants/assets";
 
-import FrameSet from "../FrameStyledComponents";
+import FrameSet from "./FrameStyledComponents";
 
 export interface FrameSetProps {
   isHovering?: boolean;
 }
 
-const ContestsFrameSet = ({ isHovering }: FrameSetProps) => {
+export const ContestsFrameSet = ({ isHovering }: FrameSetProps) => {
   return (
     <>
       <FrameSet.LeftTopFrame
@@ -77,4 +77,33 @@ const ContestsFrameSet = ({ isHovering }: FrameSetProps) => {
   );
 };
 
-export default ContestsFrameSet;
+export const ActivitiesFrameSet = ({ isHovering }: FrameSetProps) => {
+  return (
+    <>
+      <FrameSet.LeftTopFrame
+        src={assets.ui.frames.activities.leftTop}
+        width="156px"
+        height="81px"
+        $offsetX="-50px"
+        $offsetY="-55px"
+        $isHovering={isHovering}
+      />
+      <FrameSet.MiddleTopFrame
+        src={assets.ui.frames.activities.middleTop}
+        width="210px"
+        height="111px"
+        $offsetX="-105px"
+        $offsetY="-90px"
+        $isHovering={isHovering}
+      />
+      <FrameSet.RightTopFrame
+        src={assets.ui.frames.activities.leftTop}
+        width="156px"
+        height="81px"
+        $offsetX="-50px"
+        $offsetY="-55px"
+        $isHovering={isHovering}
+      />
+    </>
+  );
+};

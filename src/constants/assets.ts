@@ -71,6 +71,10 @@ const assetsPaths = {
         middleBottom: "middleBottom.png",
         middleTop: "middleTop.png",
       },
+      activities: {
+        leftTop: "leftTop.png",
+        middleTop: "middleTop.png",
+      },
     },
   },
 };

@@ -5,7 +5,7 @@ import colors from "src/constants/colors";
 import styled, { css } from "styled-components";
 
 import Pixel from "../Pixel";
-import ContestsFrameSet from "./frames/Contest";
+import { ActivitiesFrameSet, ContestsFrameSet } from "./FrameSets";
 
 interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   frame?: keyof typeof assets.ui.frames;
@@ -36,6 +36,8 @@ const Box = ({ frame, hasHoverEffect, children, ...rest }: BoxProps) => {
       {children}
       {frame && frame === "contests" ? (
         <ContestsFrameSet isHovering={isHovering} />
+      ) : frame === "activities" ? (
+        <ActivitiesFrameSet isHovering={isHovering} />
       ) : (
         <></>
       )}

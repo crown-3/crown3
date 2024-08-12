@@ -8,16 +8,22 @@ interface ExperiencesProps {
   title: string;
   experiences: Experience[];
   frame?: keyof typeof assets.ui.frames;
+  wrapperStyle?: React.CSSProperties;
 }
 
-const Experiences = ({ title, experiences, frame }: ExperiencesProps) => {
+const Experiences = ({
+  title,
+  experiences,
+  frame,
+  wrapperStyle,
+}: ExperiencesProps) => {
   return (
     <>
       <h2>{title}</h2>
 
       <Spacer height="50px" />
 
-      <ItemsWrapper>
+      <ItemsWrapper style={wrapperStyle}>
         {experiences.map((contest) => (
           <ExperienceCard key={contest.title} {...contest} frame={frame} />
         ))}
