@@ -9,9 +9,9 @@ import Tile from "./Tile";
 export interface TileInfo {
   row: number;
   column: number;
-  line?: keyof typeof assets.lines;
-  frame?: keyof typeof assets.frames;
-  icon?: keyof typeof assets.icons;
+  line?: keyof typeof assets.skilltree.lines;
+  frame?: keyof typeof assets.skilltree.frames;
+  icon?: keyof typeof assets.skilltree.icons;
 }
 
 interface TilemapProps {

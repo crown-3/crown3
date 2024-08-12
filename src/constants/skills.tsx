@@ -10,7 +10,7 @@ const PropertyIcon = styled(Pixel)`
   height: 24px;
 `;
 
-const PropertyDescription = styled.p<{
+const PropertyDescription = styled.span<{
   $color: React.CSSProperties["color"];
 }>`
   font-family: "Galmuri7", sans-serif;
@@ -20,7 +20,7 @@ const PropertyDescription = styled.p<{
   `}
 `;
 
-const skills = (icon: keyof typeof assets.icons) => {
+const skills = (icon: keyof typeof assets.skilltree.icons) => {
   let skill: Skill = {
     name: "Error",
     properties: [],
@@ -39,7 +39,9 @@ const skills = (icon: keyof typeof assets.icons) => {
         name: "C++",
         properties: [
           {
-            icon: <PropertyIcon src={assets.propertyIcons.language} />,
+            icon: (
+              <PropertyIcon src={assets.skilltree.propertyIcons.language} />
+            ),
             description: (
               <PropertyDescription $color={colors.property.white}>
                 language
@@ -61,7 +63,7 @@ const skills = (icon: keyof typeof assets.icons) => {
         name: "Emotion",
         properties: [
           {
-            icon: <PropertyIcon src={assets.propertyIcons.styling} />,
+            icon: <PropertyIcon src={assets.skilltree.propertyIcons.styling} />,
             description: (
               <PropertyDescription $color={colors.property.purple}>
                 styling library
@@ -82,7 +84,9 @@ const skills = (icon: keyof typeof assets.icons) => {
         name: "NextJs",
         properties: [
           {
-            icon: <PropertyIcon src={assets.propertyIcons.framework} />,
+            icon: (
+              <PropertyIcon src={assets.skilltree.propertyIcons.framework} />
+            ),
             description: (
               <PropertyDescription $color={colors.property.green}>
                 frontend framework
@@ -103,7 +107,9 @@ const skills = (icon: keyof typeof assets.icons) => {
         name: "Python",
         properties: [
           {
-            icon: <PropertyIcon src={assets.propertyIcons.language} />,
+            icon: (
+              <PropertyIcon src={assets.skilltree.propertyIcons.language} />
+            ),
             description: (
               <PropertyDescription $color={colors.property.white}>
                 language
@@ -113,10 +119,8 @@ const skills = (icon: keyof typeof assets.icons) => {
         ],
         description: (
           <>
-            <p>
-              이 비단뱀은 참으로 안타깝게도 타입과 브라켓을 제공하지 않는다.
-            </p>
             <p>학교에서 과제를 항상 이걸로만 내줘서 어느 정도 잘 알고 있다.</p>
+            <p>파이썬에서도 타입 체킹... 해야겠지?</p>
           </>
         ),
       };
@@ -127,7 +131,9 @@ const skills = (icon: keyof typeof assets.icons) => {
         name: "React",
         properties: [
           {
-            icon: <PropertyIcon src={assets.propertyIcons.framework} />,
+            icon: (
+              <PropertyIcon src={assets.skilltree.propertyIcons.framework} />
+            ),
             description: (
               <PropertyDescription $color={colors.property.green}>
                 frontend framework
@@ -151,7 +157,7 @@ const skills = (icon: keyof typeof assets.icons) => {
         name: "React Query",
         properties: [
           {
-            icon: <PropertyIcon src={assets.propertyIcons.api} />,
+            icon: <PropertyIcon src={assets.skilltree.propertyIcons.api} />,
             description: (
               <PropertyDescription $color={colors.property.yellow}>
                 fetching library
@@ -162,7 +168,7 @@ const skills = (icon: keyof typeof assets.icons) => {
         description: (
           <>
             <p>신버전인 @tanstack/react-query를 사용하는 편이다.</p>
-            <p>코드가 깔-쌈해지는 마법!</p>
+            <p>API 코드가 깔-쌈해지는 마법!</p>
           </>
         ),
       };
@@ -173,7 +179,7 @@ const skills = (icon: keyof typeof assets.icons) => {
         name: "Styled Components",
         properties: [
           {
-            icon: <PropertyIcon src={assets.propertyIcons.styling} />,
+            icon: <PropertyIcon src={assets.skilltree.propertyIcons.styling} />,
             description: (
               <PropertyDescription $color={colors.property.purple}>
                 styling library
@@ -194,7 +200,9 @@ const skills = (icon: keyof typeof assets.icons) => {
         name: "SvelteKit",
         properties: [
           {
-            icon: <PropertyIcon src={assets.propertyIcons.framework} />,
+            icon: (
+              <PropertyIcon src={assets.skilltree.propertyIcons.framework} />
+            ),
             description: (
               <PropertyDescription $color={colors.property.green}>
                 frontend framework
@@ -204,7 +212,7 @@ const skills = (icon: keyof typeof assets.icons) => {
         ],
         description: (
           <>
-            <p>너무 가벼워서 날아갈 것 같아.</p>
+            <p>가벼운 사이트 만드는데에는 최고</p>
           </>
         ),
       };
@@ -215,7 +223,7 @@ const skills = (icon: keyof typeof assets.icons) => {
         name: "Tailwind CSS",
         properties: [
           {
-            icon: <PropertyIcon src={assets.propertyIcons.styling} />,
+            icon: <PropertyIcon src={assets.skilltree.propertyIcons.styling} />,
             description: (
               <PropertyDescription $color={colors.property.purple}>
                 styling library
@@ -236,7 +244,9 @@ const skills = (icon: keyof typeof assets.icons) => {
         name: "Typescript",
         properties: [
           {
-            icon: <PropertyIcon src={assets.propertyIcons.language} />,
+            icon: (
+              <PropertyIcon src={assets.skilltree.propertyIcons.language} />
+            ),
             description: (
               <PropertyDescription $color={colors.property.white}>
                 language
@@ -244,7 +254,7 @@ const skills = (icon: keyof typeof assets.icons) => {
             ),
           },
           {
-            icon: <PropertyIcon src={assets.propertyIcons.heart} />,
+            icon: <PropertyIcon src={assets.skilltree.propertyIcons.heart} />,
             description: (
               <PropertyDescription $color={colors.property.red}>
                 main language
@@ -265,7 +275,7 @@ const skills = (icon: keyof typeof assets.icons) => {
         name: "Jotai",
         properties: [
           {
-            icon: <PropertyIcon src={assets.propertyIcons.state} />,
+            icon: <PropertyIcon src={assets.skilltree.propertyIcons.state} />,
             description: (
               <PropertyDescription $color={colors.property.blue}>
                 state library
@@ -280,6 +290,132 @@ const skills = (icon: keyof typeof assets.icons) => {
               사용성 측면에서 우수하다고 느낀다.
             </p>
             <p>유령이라 그런가?</p>
+          </>
+        ),
+      };
+      break;
+
+    case "lottie":
+      skill = {
+        name: "LottieFiles",
+        properties: [
+          {
+            icon: (
+              <PropertyIcon src={assets.skilltree.propertyIcons.animation} />
+            ),
+            description: (
+              <PropertyDescription $color={colors.property.orange}>
+                animation
+              </PropertyDescription>
+            ),
+          },
+        ],
+        description: (
+          <>
+            <p>JSON만으로 애니메이션을 만들어주는 고품격 라이브러리.</p>
+            <p>
+              애니메이션을 통한 UX 개선을 좋아하는 나로서는 안 쓸 이유가 없다.
+            </p>
+          </>
+        ),
+      };
+      break;
+
+    case "figma":
+      skill = {
+        name: "Figma",
+        properties: [
+          {
+            icon: <PropertyIcon src={assets.skilltree.propertyIcons.tool} />,
+            description: (
+              <PropertyDescription $color={colors.property.silver}>
+                design tool
+              </PropertyDescription>
+            ),
+          },
+        ],
+        description: (
+          <>
+            <p>나는 산업디자인학과를 가야 했을지도 모른다.</p>
+          </>
+        ),
+      };
+      break;
+
+    case "phase":
+      skill = {
+        name: "Phase",
+        properties: [
+          {
+            icon: <PropertyIcon src={assets.skilltree.propertyIcons.tool} />,
+            description: (
+              <PropertyDescription $color={colors.property.silver}>
+                design tool
+              </PropertyDescription>
+            ),
+          },
+          {
+            icon: (
+              <PropertyIcon src={assets.skilltree.propertyIcons.animation} />
+            ),
+            description: (
+              <PropertyDescription $color={colors.property.orange}>
+                animation
+              </PropertyDescription>
+            ),
+          },
+        ],
+        description: (
+          <>
+            <p>로띠 에니메이션을 제작하기에 최적인 최신툴</p>
+            <p>나는 매우 찬양. 부드러운 애니메이션.</p>
+          </>
+        ),
+      };
+      break;
+
+    case "aseprite":
+      skill = {
+        name: "Aseprite",
+        properties: [
+          {
+            icon: <PropertyIcon src={assets.skilltree.propertyIcons.tool} />,
+            description: (
+              <PropertyDescription $color={colors.property.silver}>
+                design tool
+              </PropertyDescription>
+            ),
+          },
+        ],
+        description: (
+          <>
+            <p>
+              사실 이 사이트에 있는 도트 그래픽 에셋들은 모두 제가 이걸로
+              만든겁니다
+            </p>
+            <p>(거의 대부분이요)</p>
+          </>
+        ),
+      };
+      break;
+
+    case "powerpoint":
+      skill = {
+        name: "MS Powerpoint",
+        properties: [
+          {
+            icon: <PropertyIcon src={assets.skilltree.propertyIcons.tool} />,
+            description: (
+              <PropertyDescription $color={colors.property.silver}>
+                design tool
+              </PropertyDescription>
+            ),
+          },
+        ],
+        description: (
+          <>
+            <p>사실상 제가 디자인을 입문한 툴..?입니다.</p>
+            <p>PPT 잘 만듭니다. ^^</p>
           </>
         ),
       };

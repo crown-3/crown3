@@ -13,6 +13,8 @@ const colors = {
     blue: "#639bff",
     yellow: "#ffe42c",
     green: "#5ebc1e",
+    orange: "#df7126",
+    silver: "#b0b0b0",
   },
 
   tags: {

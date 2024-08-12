@@ -1,7 +1,7 @@
 export const MOBILE_BREAKPOINT_PX = 768;
 export const MOBILE_BREAKPOINT = "768px";
 
-export const DESKTOP_PAGESIDEGAP = "25px"; // originally 10vw
+export const DESKTOP_PAGESIDEGAP = "100px";
 export const MOBILE_PAGESIDEGAP = "25px";
 
 export const CONTENT_AREA_DESKTOP = `calc(100% - 2 * ${DESKTOP_PAGESIDEGAP})`;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Box from "src/components/common/Box";
+import Box from "src/components/common/box/Box";
 import PixelButton from "src/components/common/PixelButton";
 import DragToScrollContainer from "src/components/containers/DragToScrollContainer";
 import Spacer from "src/components/containers/Spacer";
@@ -11,7 +11,7 @@ import {
   MOBILE_BREAKPOINT_PX,
 } from "src/constants/defaults";
 import Paths from "src/constants/paths";
-import { Tree, TREES } from "src/constants/skilltrees";
+import { Tree, TREES, TreeVariants } from "src/constants/skilltrees";
 import { SelectedTileRecord } from "src/types/tile";
 import styled, { css } from "styled-components";
 
@@ -47,13 +47,24 @@ const Skill = () => {
 
         <SkillViewer>
           <DragToScrollContainer>
-            <Tilemap
-              tileSize="100px"
-              rows={9}
-              columns={12}
-              tileInfos={selectedTree.tileInfos}
-              selectedTileState={[selectedTile, setSelectedTile]}
-            />
+            {selectedTree.type === TreeVariants.DEVELOPMENT && (
+              <Tilemap
+                tileSize="100px"
+                rows={9}
+                columns={12}
+                tileInfos={selectedTree.tileInfos}
+                selectedTileState={[selectedTile, setSelectedTile]}
+              />
+            )}
+            {selectedTree.type === TreeVariants.DESIGN && (
+              <Tilemap
+                tileSize="100px"
+                rows={1}
+                columns={12}
+                tileInfos={selectedTree.tileInfos}
+                selectedTileState={[selectedTile, setSelectedTile]}
+              />
+            )}
           </DragToScrollContainer>
 
           {selectedTile?.icon && (

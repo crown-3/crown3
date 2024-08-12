@@ -1,5 +1,6 @@
-import Box from "src/components/common/Box";
+import Box from "src/components/common/box/Box";
 import Spacer from "src/components/containers/Spacer";
+import assets from "src/constants/assets";
 import colors from "src/constants/colors";
 import styled, { css } from "styled-components";
 
@@ -14,11 +15,18 @@ export interface Experience {
   term: string;
   tags: ExperienceTag[][];
   description?: React.ReactNode;
+  frame?: keyof typeof assets.ui.frames;
 }
 
-const ExperienceCard = ({ title, term, tags, description }: Experience) => {
+const ExperienceCard = ({
+  title,
+  term,
+  tags,
+  description,
+  frame,
+}: Experience) => {
   return (
-    <Wrapper>
+    <Wrapper frame={frame} $isFrameExists={!!frame} hasHoverEffect>
       <h3>{title}</h3>
 
       <Spacer height="5px" />
@@ -72,9 +80,9 @@ const ExperienceCard = ({ title, term, tags, description }: Experience) => {
   );
 };
 
-const Wrapper = styled(Box)`
+const Wrapper = styled(Box)<{ $isFrameExists?: boolean }>`
   width: 100%;
-  padding: 20px;
+  padding: ${(props) => (props.$isFrameExists ? "25px" : "20px")};
   box-sizing: border-box;
 
   display: flex;

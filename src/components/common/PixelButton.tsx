@@ -2,7 +2,7 @@ import { useState } from "react";
 import colors from "src/constants/colors";
 import styled, { css } from "styled-components";
 
-import Box from "./Box";
+import Box from "./box/Box";
 
 interface PixelButtonProps {
   onClick?: () => void;

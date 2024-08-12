@@ -36,6 +36,16 @@ const LeaderTag: ExperienceTag = {
 
 export const CONTESTS: Experience[] = [
   {
+    title: "SPARCS AI Startup Hackathon",
+    term: "2024.7.29 ~ 2024.8.01",
+    tags: [[FrontendTag]],
+    description: (
+      <>
+        <p>- 하루에 한 번 패밀리타임, 우리 가족이 돈독해지는 시간</p>
+      </>
+    ),
+  },
+  {
     title: "GIST AI4GOOD Hackathon",
     term: "2024.3.23 ~ 2024.3.24",
     tags: [[FirstPrizeTag], [PMTag, FrontendTag, DesignTag]],
@@ -67,6 +77,26 @@ export const CONTESTS: Experience[] = [
     ),
   },
   {
+    title: "JUNCTION ASIA 2023",
+    term: "2023.8.18 ~ 2023.8.20",
+    tags: [[FrontendTag]],
+    description: (
+      <>
+        <p>- 로봇 팔을 이용한 커스텀 자동화 병원 식단</p>
+      </>
+    ),
+  },
+  {
+    title: "GIST 창의융합경진대회 탁구로봇 트랙",
+    term: "2023.5.24 ~ 2023.8.18",
+    tags: [[ThirdPrizeTag]],
+    description: (
+      <>
+        <p>- 카메라로 공의 궤적을 분석하고 탁구공을 치는 로봇</p>
+      </>
+    ),
+  },
+  {
     title: "GDSCxGIST Hackathon",
     term: "2023.04.29 ~ 2023.04.30",
     tags: [[FirstPrizeTag], [PMTag, FrontendTag, DesignTag]],
@@ -83,8 +113,7 @@ export const CONTESTS: Experience[] = [
           </a>
         </p>
         <p>
-          - 기술의 발달로 대면 만남이 위축되며 발생한 우울과 외로움을 해결하기
-          위한 연쇄 반응형 기록장, &quot;오라기&quot;
+          - 우울과 외로움을 해결하기 위한 연쇄 반응형 기록장, &quot;오라기&quot;
         </p>
       </>
     ),
@@ -110,6 +139,17 @@ export const ACTIVITIES: Experience[] = [
           - 지스트 교내 학생들을 위한 서비스를 개발하고 운영하는 학생회 단체
         </p>
         <p>- 2023 Team Leader</p>
+      </>
+    ),
+  },
+  {
+    title: "XFashion",
+    term: "2023.08 ~ 2023.02",
+    tags: [[DesignTag, FrontendTag]],
+    description: (
+      <>
+        <p>- 스타트업</p>
+        <p>- 가상피팅을 지원하는 의류 쇼핑몰 개발 경험</p>
       </>
     ),
   },

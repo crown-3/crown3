@@ -104,6 +104,11 @@ export const TILEINFOS_DEVELOPMENT: TileInfo[] = [
   {
     row: 5,
     column: 4,
+    line: "leftDownRight",
+  },
+  {
+    row: 5,
+    column: 5,
     line: "leftDown",
   },
 
@@ -120,6 +125,11 @@ export const TILEINFOS_DEVELOPMENT: TileInfo[] = [
   {
     row: 6,
     column: 4,
+    line: "upDown",
+  },
+  {
+    row: 6,
+    column: 5,
     line: "upDown",
   },
 
@@ -146,6 +156,11 @@ export const TILEINFOS_DEVELOPMENT: TileInfo[] = [
   {
     row: 7,
     column: 4,
+    line: "upDown",
+  },
+  {
+    row: 7,
+    column: 5,
     line: "upDown",
   },
 
@@ -184,6 +199,38 @@ export const TILEINFOS_DEVELOPMENT: TileInfo[] = [
     frame: "square",
     icon: "jotai",
   },
+  {
+    row: 8,
+    column: 5,
+    line: "up",
+    frame: "square",
+    icon: "lottie",
+  },
 ];
 
-export const TILEINFOS_DESIGN: TileInfo[] = [];
+export const TILEINFOS_DESIGN: TileInfo[] = [
+  {
+    row: 0,
+    column: 0,
+    frame: "circle",
+    icon: "figma",
+  },
+  {
+    row: 0,
+    column: 2,
+    frame: "circle",
+    icon: "phase",
+  },
+  {
+    row: 0,
+    column: 4,
+    frame: "circle",
+    icon: "aseprite",
+  },
+  {
+    row: 0,
+    column: 6,
+    frame: "circle",
+    icon: "powerpoint",
+  },
+];

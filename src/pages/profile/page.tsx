@@ -19,7 +19,11 @@ const ProfilePage = () => {
 
         <Spacer height="150px" />
 
-        <Experiences title="🤟 Contests" experiences={CONTESTS} />
+        <Experiences
+          title="🤟 Contests"
+          experiences={CONTESTS}
+          frame="contests"
+        />
 
         <Spacer height="150px" />
 

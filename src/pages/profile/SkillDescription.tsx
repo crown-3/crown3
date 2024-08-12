@@ -34,13 +34,13 @@ const SkillDescription = ({ tileInfo, onDismiss }: SkillDescriptionProps) => {
               width="150px"
               height="150px"
               key="frame"
-              src={assets.frames[tileInfo.frame].default}
+              src={assets.skilltree.frames[tileInfo.frame].default}
             />,
             <Pixel
               width="75px"
               height="75px"
               key="icon"
-              src={assets.icons[tileInfo.icon]}
+              src={assets.skilltree.icons[tileInfo.icon]}
             />,
           ]}
         />

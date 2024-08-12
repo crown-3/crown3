@@ -8,7 +8,7 @@ import { TileInfo } from "./Tilemap";
 interface TileProps {
   tileSize: React.CSSProperties["width"];
   tileInfo: TileInfo;
-  isSelected: boolean;
+  isSelected?: boolean;
 }
 
 const Tile = ({ tileSize, tileInfo, isSelected }: TileProps) => {
@@ -33,7 +33,7 @@ const Tile = ({ tileSize, tileInfo, isSelected }: TileProps) => {
           <Pixel
             width={tileSize}
             height={tileSize}
-            src={assets.lines[tileInfo.line]}
+            src={assets.skilltree.lines[tileInfo.line]}
           />
         ) : null,
 
@@ -43,14 +43,18 @@ const Tile = ({ tileSize, tileInfo, isSelected }: TileProps) => {
             height={tileSize}
             src={
               isHovering || isSelected
-                ? assets.frames[tileInfo.frame].selected
-                : assets.frames[tileInfo.frame].default
+                ? assets.skilltree.frames[tileInfo.frame].selected
+                : assets.skilltree.frames[tileInfo.frame].default
             }
           />
         ) : null,
 
         tileInfo.icon ? (
-          <Pixel width="50%" height="50%" src={assets.icons[tileInfo.icon]} />
+          <Pixel
+            width="50%"
+            height="50%"
+            src={assets.skilltree.icons[tileInfo.icon]}
+          />
         ) : null,
       ].filter((layer) => layer !== null)}
     />

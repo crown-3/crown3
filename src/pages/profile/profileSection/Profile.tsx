@@ -24,7 +24,7 @@ const PROFILE_INFOS: ProfileInfo[] = [
     key: "github",
     icon: <Icons.Github />,
     name: "MiRoro2",
-    link: "https://github.com/MiRoro2",
+    link: "https://github.com/crown-3",
   },
   {
     key: "velog",
